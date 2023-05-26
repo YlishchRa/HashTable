@@ -60,7 +60,7 @@ public:
         node = new Node{key, value, std::unique_ptr<Node>(nullptr)};
     }
 
-    void Search(const Key& key) {
+    Value& Search(const Key& key) {
 
         size_t index = HashFunction(key);
 
@@ -70,7 +70,7 @@ public:
         {
             if (node->key == key)
             {
-                return node->key;            
+                return node->value;            
             }
             node = node->next.get();
         }
